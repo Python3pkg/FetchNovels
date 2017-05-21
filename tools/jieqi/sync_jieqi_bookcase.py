@@ -49,7 +49,7 @@ def get_tids(source):
 def sync():
     source = sys.argv[1]
     tids = get_tids(source)
-    print('{}: {}'.format(source, list(tids)))
+    print(('{}: {}'.format(source, list(tids))))
     with cli.NovelCmdline(source, tids) as fac:
         fac.update()
 

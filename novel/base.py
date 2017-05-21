@@ -132,7 +132,7 @@ class SinglePage(BaseNovel):
 
     def dump(self):
         filename = '{self.title}.txt'.format(self=self)
-        print(self.title)
+        print((self.title))
         with open(filename, 'w') as fp:
             fp.write(self.title)
             fp.write('\n\n\n\n')

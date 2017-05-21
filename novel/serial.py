@@ -35,7 +35,7 @@ class Page(SinglePage):
                 path = os.path.join(os.getcwd(), filename)
             else:
                 path = os.path.join(folder, filename)
-        print(self.title)
+        print((self.title))
         with open(path, 'w') as fp:
             fp.write(self.title)
             fp.write('\n\n\n')
@@ -90,7 +90,7 @@ class SerialNovel(BaseNovel):
     def run(self, refresh=False):
         super().run(refresh=refresh)
         self.title, self.author = self.get_title_and_author()
-        print(colored(self.title, 'green'), self.author)
+        print((colored(self.title, 'green'), self.author))
 
         if self.cache:
             if not self.use_exist_session:
@@ -131,7 +131,7 @@ class SerialNovel(BaseNovel):
             old_chapters_ids = self.session.query(Chapter.id).filter_by(
                 novel_id=self.tid, novel_source=self.source
             ).all()
-            old_chapters_ids = list(*zip(*old_chapters_ids))
+            old_chapters_ids = list(*list(zip(*old_chapters_ids)))
             novel.chapters.extend(
                 [Chapter(id=cid, title=title, url=url)
                  for cid, url, title in self.chapter_list
@@ -149,7 +149,7 @@ class SerialNovel(BaseNovel):
             p.map(self._update_chapter, empty_chapters, 10)
 
     def _update_chapter(self, ch):
-        print(ch.title)
+        print((ch.title))
         page = self.page(
             ch.url, ch.title, self.cont_sel,
             proxies=self.proxies, encoding=self.encoding,
@@ -230,7 +230,7 @@ class SerialNovel(BaseNovel):
         download_dir = self.download_dir
         if not os.path.isdir(download_dir):
             os.makedirs(download_dir)
-        print('《{self.title}》{self.author}'.format(self=self))
+        print(('《{self.title}》{self.author}'.format(self=self)))
 
         if self.cache:
             intro = self.session.query(Serial).filter_by(

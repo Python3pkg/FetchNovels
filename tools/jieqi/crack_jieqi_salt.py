@@ -44,7 +44,7 @@ def crack_salt(p, jieqi):
 
 
 if __name__ == '__main__':
-    jieqiUserPassword = input('jieqiUserPassword: ')
+    jieqiUserPassword = eval(input('jieqiUserPassword: '))
     password = getpass()
 
     crack_salt(password, jieqiUserPassword)

@@ -50,8 +50,8 @@ class NovelCmdline(object):
             elif source in sources.ARTICLE_TYPE:
                 return self.list_article(source)
             else:
-                print('The specific source `{}` does not exists!'.format(
-                    source))
+                print(('The specific source `{}` does not exists!'.format(
+                    source)))
         else:
             novel_list = self.session.query(General).all()
 
@@ -63,7 +63,7 @@ class NovelCmdline(object):
                             colored(novel.title, 'green'),
                             novel.source))
 
-            print(pt.get_string())
+            print((pt.get_string()))
             return pt
 
     def list_article(self, source=None):
@@ -86,7 +86,7 @@ class NovelCmdline(object):
             length_list = [len(novel.text) for novel in novel_list]
             pt.add_column('length', length_list)
 
-        print(pt.get_string())
+        print((pt.get_string()))
         return pt
 
     def list_serial(self, source=None):
@@ -120,7 +120,7 @@ class NovelCmdline(object):
                 'chapters', [len(novel.chapters) for novel in novel_list],
                 valign='m')
 
-        print(pt.get_string())
+        print((pt.get_string()))
         return pt
 
     def delete_serial(self, source, tid):
@@ -164,8 +164,8 @@ class NovelCmdline(object):
             else:
                 print('Something strange may happens here.')
 
-        for s, t in deleted.items():
-            print('{}: {}'.format(s, t))
+        for s, t in list(deleted.items()):
+            print(('{}: {}'.format(s, t)))
 
         return deleted
 
@@ -200,7 +200,7 @@ class NovelCmdline(object):
         elif source in sources.ARTICLE_TYPE:
             self.dump_article(source, tid)
         else:
-            print('The specific source `{}` does not exists!'.format(source))
+            print(('The specific source `{}` does not exists!'.format(source)))
 
     def dump_serial(self, source, tid):
         novel = self.session.query(Serial).filter_by(
@@ -302,7 +302,7 @@ class NovelCmdline(object):
 
         def try_mark_novel(n):
             nonlocal mark_all
-            print(n.id, colored(n.title, 'green'), n.author, n.source)
+            print((n.id, colored(n.title, 'green'), n.author, n.source))
             if mark_all:
                 n.finish = True
             else:
@@ -338,7 +338,7 @@ class NovelCmdline(object):
         tids = tids or self.tids
 
         deleted = self.delete(source, tids)
-        for s, t in deleted.items():
+        for s, t in list(deleted.items()):
             self.update(s, t)
 
 

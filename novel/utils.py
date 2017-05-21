@@ -195,6 +195,6 @@ def sync_db_to_list():
 
 def sync_list_to_db():
     nl = load_novel_list()
-    for s, tids in nl.items():
+    for s, tids in list(nl.items()):
         for tid in tids:
             add_novel(s, tid)

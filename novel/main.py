@@ -104,7 +104,7 @@ def main():
         elif args.dump_only:
             fac.dump()
         elif source:
-            print('{}: {}'.format(source, args.tids))
+            print(('{}: {}'.format(source, args.tids)))
             if not args.tids:
                 print('No specific tid to download!')
                 sys.exit(1)

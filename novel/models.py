@@ -20,7 +20,7 @@ class Base(object):
 
     @property
     def columns(self):
-        return self.__table__.columns.keys()
+        return list(self.__table__.columns.keys())
 
     @property
     def column_items(self):
@@ -29,7 +29,7 @@ class Base(object):
     @property
     def column_items_ignore_text(self):
         return {k.name: self._short_item(k)
-                for k in self.__table__.columns.values()}
+                for k in list(self.__table__.columns.values())}
 
     def _short_item(self, k):
         if isinstance(k.type, Text):

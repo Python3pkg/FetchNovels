@@ -37,7 +37,7 @@ class SingleNovel(SinglePage):
 
     def run(self, refresh=False):
         super().run(refresh=refresh)
-        print(colored(self.title, 'green'))
+        print((colored(self.title, 'green')))
         if self.cache:
             if not self.use_exist_session:
                 self.session = new_session()

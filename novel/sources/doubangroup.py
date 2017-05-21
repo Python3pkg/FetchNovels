@@ -52,7 +52,7 @@ class Doubangroup(base.BaseNovel):
         self.title = self.req['title']
         self.author_id = self.req['author']['id']
         self.num_comments = self.req['comments_count']
-        print(self.title)
+        print((self.title))
         if self.cache:
             if not self.use_exist_session:
                 self.session = db.new_session()
